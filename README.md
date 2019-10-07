@@ -47,6 +47,7 @@ set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION D:/Wendell/Develop/li
 
 + [MTCNN的另类用法](https://blog.csdn.net/relocy/article/details/84075570)
 
++ [Win版HyperFT](https://github.com/qaz734913414/Ncnn_FaceTrack)
 
 ### Features
 
