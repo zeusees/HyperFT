@@ -61,6 +61,6 @@ set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION D:/Wendell/Develop/li
 
 ### TODO
 
-+ Sorry,目前还是急需要依赖opencv，稍后提交精简版，~~~~(>_<)~~~~
++ Sorry,目前还是需要依赖opencv，稍后提交精简版，~~~~(>_<)~~~~
 
 + iOS Project Develop
