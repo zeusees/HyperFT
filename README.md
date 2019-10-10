@@ -53,7 +53,7 @@ set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION D:/Wendell/Develop/li
 + 支持人脸角度计算
 + 提供OpenGL图形绘制代码，支持后续显示优化及贴纸集成
 
-### Demo
+### Demo(运行于 Ubuntu 18.04, i5-7400, NCNN)
 
 ![image](./resource/demo.gif)
 
