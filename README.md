@@ -47,6 +47,8 @@ set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION D:/Wendell/Develop/li
 
 + [Win版HyperFT](https://github.com/qaz734913414/Ncnn_FaceTrack)
 
++ [Linux版HyperFT](https://github.com/xiangdeyizhang/FaceTrack_ncnn_HyperFT)
+
 ### Features
 
 + 速度快，体积小，易于集成。
