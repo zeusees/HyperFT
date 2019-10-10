@@ -43,8 +43,6 @@ set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION D:/Wendell/Develop/li
 ### Related Resources
 
 
-+ [项目所需计算库ncnn](https://github.com/Tencent/ncnn/releases/download/20190611/ncnn-android-lib.zip)
-
 + [MTCNN的另类用法](https://blog.csdn.net/relocy/article/details/84075570)
 
 + [Win版HyperFT](https://github.com/qaz734913414/Ncnn_FaceTrack)
@@ -55,12 +53,17 @@ set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION D:/Wendell/Develop/li
 + 支持人脸角度计算
 + 提供OpenGL图形绘制代码，支持后续显示优化及贴纸集成
 
+### Demo
+
+![image](./resource/demo.gif)
+
+
 ### 体验
 
 + [体验apk](https://fir.im/HyperFT)
 
 ### TODO
 
-+ Sorry,目前还是需要依赖opencv，稍后提交精简版，~~~~(>_<)~~~~
++ Sorry,目前还是需要依赖opencv，稍后提交精简版
 
 + iOS Project Develop
