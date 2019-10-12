@@ -40,7 +40,7 @@ set(OpenCV_DIR "D:/Wendell/Develop/libs/OpenCV-android-sdk/sdk/native/jni")
 set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION D:/Wendell/Develop/libs/ncnn-android-lib/${ANDROID_ABI}/libncnn.a)
 ```
 
-### Related Resources
+### 相关资源
 
 
 + [MTCNN的另类用法](https://blog.csdn.net/relocy/article/details/84075570)
@@ -49,16 +49,10 @@ set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION D:/Wendell/Develop/li
 
 + [Linux版HyperFT](https://github.com/xiangdeyizhang/FaceTrack_ncnn_HyperFT)
 
-### Features
-
-+ 速度快，体积小，易于集成。
-+ 支持人脸角度计算
-+ 提供OpenGL图形绘制代码，支持后续显示优化及贴纸集成
 
 ### Demo(运行于 Ubuntu 18.04, i5-7400, NCNN)
 
 ![image](./resource/demo.gif)
-
 
 ### 体验
 
