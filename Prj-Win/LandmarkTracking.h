@@ -153,7 +153,7 @@ public:
 		cv::Size lowDpSize(ImageHighDP.cols / downSimpilingFactor, ImageHighDP.rows / downSimpilingFactor);
 		cv::resize(image, ImageLowDP, lowDpSize);
 		trackingID = 0;
-		detection_Interval = 200; //detect faces every 200 ms
+		detection_Interval = 350; //detect faces every 200 ms
 		detecting(&image);
 		stabilization = false;
 		UI_height = image.rows;
@@ -163,8 +163,30 @@ public:
 	void doingLandmark_onet(cv::Mat& face, Bbox& faceBbox, int zeroadd_x, int zeroadd_y, int stable_state = 0) {
 		ncnn::Mat in = ncnn::Mat::from_pixels_resize(face.data, ncnn::Mat::PIXEL_BGR, face.cols, face.rows, 48, 48);
 		faceBbox = detector->onet(in, zeroadd_x, zeroadd_y, face.cols, face.rows);
-
+		/*
+		ncnn::Mat in = ncnn::Mat::from_pixels_resize(face.data, ncnn::Mat::PIXEL_BGR, face.cols, face.rows, 48, 48);
+		const float mean_vals[3] = { 127.5f, 127.5f, 127.5f };
+		const float norm_vals[3] = { 1.0 / 127.5, 1.0 / 127.5, 1.0 / 127.5 };
+		in.substract_mean_normalize(mean_vals, norm_vals);
+		ncnn::Extractor Onet = detector->Onet.create_extractor();
+		Onet.set_num_threads(2);
+		Onet.input("data", in);
+		ncnn::Mat score, bbox, keyPoint;
+		Onet.extract("prob1", score);
+		Onet.extract("conv6-2", bbox);
+		Onet.extract("conv6-3", keyPoint);
+		faceBbox.score = (float)score[1];
+		faceBbox.x1 = static_cast<int>(bbox[0] * face.cols) + zeroadd_x;
+		faceBbox.y1 = static_cast<int>(bbox[1] * face.rows) + zeroadd_y;
+		faceBbox.x2 = static_cast<int>(bbox[2] * face.cols) + face.cols + zeroadd_x;
+		faceBbox.y2 = static_cast<int>(bbox[3] * face.rows) + face.rows + zeroadd_y;
+		for (int num = 0; num<5; num++) {
+			(faceBbox.ppoint)[num] = zeroadd_x + face.cols * keyPoint[num];
+			(faceBbox.ppoint)[num + 5] = zeroadd_y + face.rows  * keyPoint[num + 5];
+		}
+		*/
 	}
+
 
 
 	void tracking_corrfilter(const cv::Mat& frame, const cv::Mat& model, cv::Rect& trackBox, float scale)
@@ -237,11 +259,14 @@ public:
 
 		image(faceROI).copyTo(face.frame_face_prev);
 		face.frameId += 1;
+		face.isCanShow = true;
+		
 		ncnn::Mat rnet_data = ncnn::Mat::from_pixels_resize(faceROI_Image.data, ncnn::Mat::PIXEL_BGR2RGB, faceROI_Image.cols, faceROI_Image.rows, 24, 24);
 		
 		float sim = detector->rnet(rnet_data);
-
-		face.isCanShow = true;
+		
+		//float sim = face.faceBbox.score;
+		
 		if (sim > 0.9) {
 			//stablize
 			float diff_x = 0;
@@ -281,15 +306,6 @@ public:
 			else {
 				iter++;
 			}
-		}
-
-		if (trackingFace.size() <= 0)
-		{
-			detection_Interval = 200;
-		}
-		else
-		{
-			detection_Interval = 1000;
 		}
 
 		if (detection_Time < 0)
