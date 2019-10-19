@@ -11,8 +11,10 @@
 开源视频人脸跟踪算法,基于mtcnn人脸加测+onet人脸跟踪，移动端速度可以达到150fps+。该项目基于Android工程，提供底层JNI实现，使用者可以自行编译移植到其他平台。算法依赖ncnn深度学习计算库，体积小，易于集成。
 
 <p>
+<div align="center">
 <img src="./resource/demo.gif" width="650px" alt="Demo(运行于 Ubuntu 18.04, i5-7400, NCNN)"/>
 <div align="center">Demo(运行于 Ubuntu 18.04, i5-7400, NCNN)</div>
+</div>
 <p>
 
 如果你想要了解更多，请参考：
