@@ -347,7 +347,7 @@ void MTCNN::ONet(){
 				it->regreCoord[channel] = (float)bbox[channel];
 			}
 			it->area = (it->x2 - it->x1) * (it->y2 - it->y1);
-			it->score = score.channel(1)[0];
+			it->score = (float)score[1];
 			for (int num = 0; num<5; num++) {
 				(it->ppoint)[num] = it->x1 + (it->x2 - it->x1) * keyPoint[num];
 				(it->ppoint)[num + 5] = it->y1 + (it->y2 - it->y1) * keyPoint[num + 5];
@@ -372,10 +372,10 @@ Bbox MTCNN::onet(ncnn::Mat& img, int x, int y, int w, int h) {
 	ex.extract("prob1", score);
 	ex.extract("conv6-2", bbox);
 	ex.extract("conv6-3", keyPoint);
-	faceBbox.score = score.channel(1)[0];
+	faceBbox.score = (float)score[1];
 	faceBbox.x1 = static_cast<int>(bbox[0] * w) + x;
 	faceBbox.y1 = static_cast<int>(bbox[1] * h) + y;
-	faceBbox.x2 = static_cast<int>(bbox[2] * w) + h + x;
+	faceBbox.x2 = static_cast<int>(bbox[2] * w) + w + x;
 	faceBbox.y2 = static_cast<int>(bbox[3] * h) + h + y;
 	for (int num = 0; num<5; num++) {
 		(faceBbox.ppoint)[num] = x + w * keyPoint[num];
