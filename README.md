@@ -21,7 +21,7 @@
 
 * [官方主页](http://www.zeusee.com)
 * [Github](https://github.com/zeusees/HyperFT)
-* [Gitee](https://gitee.com/huiwei13/HyperFT)
+* [Gitee](https://gitee.com/zeusees/HyperFT)
 
 ## 代码编译
 
@@ -78,5 +78,5 @@ set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION D:/Wendell/Develop/li
 ## 联系方式
 
 * 主页：[智云视图](http://www.zeusee.com/)
-* 源码：[Github](https://github.com/zeusees/HyperFT), [Gitee](https://gitee.com/huiwei13/HyperFT)
+* 源码：[Github](https://github.com/zeusees/HyperFT), [Gitee](https://gitee.com/zeusees/HyperFT)
 * QQ群：724142079, 746123554
