@@ -67,7 +67,7 @@ set_target_properties(libncnn PROPERTIES IMPORTED_LOCATION D:/Wendell/Develop/li
 
 ## 体验
 
-* [体验apk](https://fir.im/HyperFT)
+* [体验apk](http://demo.zeusee.com/HyperFT)
 
 ## TODO
 
